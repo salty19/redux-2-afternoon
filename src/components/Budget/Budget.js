@@ -25,7 +25,7 @@ class Budget extends Component {
       <Background>
         {loading ? <Loading /> : null}
         <div className='budget-container'>
-          <Nav />
+          <Nav firstName={firstName} lastName={lastName} />
           <div className='content-container'>
             <div className="purchases-container">
               <AddPurchase />
