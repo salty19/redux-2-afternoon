@@ -10,6 +10,8 @@ import './Budget.css';
 import { connect } from 'react-redux' 
 import { requestUserData } from './../../ducks/userReducer'
 import { requestBudgetData } from './../../ducks/budgetReducer'
+import { addPurchase } from './../../ducks/budgetReducer'
+import { removePurchase } from './../../ducks/budgetReducer'
 
 
 class Budget extends Component {
@@ -51,4 +53,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {requestUserData, requestBudgetData} )(Budget)
+export default connect(mapStateToProps, {requestUserData, requestBudgetData, addPurchase, removePurchase} )(Budget)
