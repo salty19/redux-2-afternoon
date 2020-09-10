@@ -10,8 +10,7 @@ import './Budget.css';
 import { connect } from 'react-redux' 
 import { requestUserData } from './../../ducks/userReducer'
 import { requestBudgetData } from './../../ducks/budgetReducer'
-import { addPurchase } from './../../ducks/budgetReducer'
-import { removePurchase } from './../../ducks/budgetReducer'
+import { addPurchase, removePurchase } from './../../ducks/budgetReducer'
 
 
 class Budget extends Component {
@@ -32,8 +31,8 @@ class Budget extends Component {
           <Nav firstName={firstName} lastName={lastName} />
           <div className='content-container'>
             <div className="purchases-container">
-              <AddPurchase />
-              <DisplayPurchases purchases={purchases} />
+              <AddPurchase addPurchase={this.props.addPurchase} />
+              <DisplayPurchases purchases={purchases} removePurchase={this.props.removePurchase} />
             </div>
             <div className='chart-container'>
               <Chart1 purchases={purchases} budgetLimit={budgetLimit} />
