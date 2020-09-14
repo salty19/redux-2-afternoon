@@ -24,7 +24,7 @@ export function requestBudgetData() {
 
 
 export function addPurchase(price, description, category){
-    let data = axios.post('/api/budget-data/purchases', { price, description, category }).then(res => res.data)
+    let data = axios.post('/api/budget-data/purchases', { description, price, category }).then(res => res.data)
 
     return{
         type: ADD_PURCHASE,
@@ -33,8 +33,8 @@ export function addPurchase(price, description, category){
 }
 
 
-export function removePurchase() {
-    let data = axios.delete('/api/budget-data/purchase/${id}').then(res => res.data)
+export function removePurchase(id) {
+    let data = axios.delete(`/api/budget-data/purchase/${id}`).then(res => res.data)
 
     return {
         type: REMOVE_PURCHASE,
@@ -43,7 +43,7 @@ export function removePurchase() {
 }
 
 
-export default function reducer(state = initialState, action) {
+export default function budgetReducer(state = initialState, action) {
     switch (action.type) {
 
         case REQUEST_BUDGET_DATA + '_PENDING':
